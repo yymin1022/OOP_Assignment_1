@@ -34,9 +34,7 @@ bool isExit;
 vector<Student> studentData;
 
 int main() {
-    cin.tie(0);
-    cout.tie(0);
-    ios_base::sync_with_stdio(false);
+    cout.setf(ios::left);
 
     while(!isExit){
         selMenu();
@@ -227,10 +225,20 @@ void selMenu(){
 }
 
 void Student::printStudent(){
+    cout.width(16);
+    cout.fill(' ');
     cout << this->name << " ";
+    cout.width(11);
+    cout.fill(' ');
     cout << this->studentID << " ";
+    cout.width(5);
+    cout.fill(' ');
     cout << this->birthYear << " ";
+    cout.width(20);
+    cout.fill(' ');
     cout << this->dept << " ";
+    cout.width(12);
+    cout.fill(' ');
     cout << this->telNum << "\n";
 }
 
