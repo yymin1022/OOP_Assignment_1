@@ -2,6 +2,21 @@
 
 using namespace std;
 
+class Student{
+private:
+    string birthYear;
+    string dept;
+    string name;
+    string studentID;
+    string telNum;
+
+public:
+    explicit Student(const string &name, const string &studentID, const string &birthYear, const string &dept, const string &telNum);
+
+    void initStudent(string, string, string, string, string);
+    void printStudent();
+};
+
 void insertStudent();
 void searchStudent();
 void sortStudent();
@@ -20,32 +35,6 @@ int main() {
 
     return 0;
 }
-
-class Student{
-private:
-    string birthYear;
-    string dept;
-    string name;
-    string studentID;
-    string telNum;
-
-public:
-    void initStudent(string name, string studentID, string birthYear, string dept, string telNum){
-        this->birthYear = birthYear;
-        this->dept = dept;
-        this->name = name;
-        this->studentID = studentID;
-        this->telNum = telNum;
-    };
-
-     void printStudent(){
-         cout << this->name << " ";
-         cout << this->studentID << " ";
-         cout << this->birthYear << " ";
-         cout << this->dept << " ";
-         cout << this->telNum << "\n";
-     }
-};
 
 void insertStudent(){
     string name, studentID, birthYear, dept, telNum;
@@ -92,8 +81,7 @@ void insertStudent(){
         cout << "Tel Number must be up to 12 digits." << "\n";
     }
 
-    Student newStudent;
-    newStudent.initStudent(name, studentID, birthYear, dept, telNum);
+    Student newStudent(name, studentID, birthYear, dept, telNum);
 }
 
 void searchStudent(){
@@ -128,4 +116,29 @@ void selMenu(){
             isExit = true;
             break;
     }
+}
+
+void Student::initStudent(string name, string studentID, string birthYear, string dept, string telNum){
+    this->birthYear = birthYear;
+    this->dept = dept;
+    this->name = name;
+    this->studentID = studentID;
+    this->telNum = telNum;
+}
+
+void Student::printStudent(){
+    cout << this->name << " ";
+    cout << this->studentID << " ";
+    cout << this->birthYear << " ";
+    cout << this->dept << " ";
+    cout << this->telNum << "\n";
+}
+
+Student::Student(const string &name, const string &studentID, const string &birthYear, const string &dept,
+                 const string &telNum) {
+    this->birthYear = birthYear;
+    this->dept = dept;
+    this->name = name;
+    this->studentID = studentID;
+    this->telNum = telNum;
 }
