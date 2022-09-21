@@ -12,7 +12,6 @@ private:
 
 public:
     explicit Student(const string &name, const string &studentID, const string &birthYear, const string &dept, const string &telNum);
-
     void initStudent(string, string, string, string, string);
     void printStudent();
 };
