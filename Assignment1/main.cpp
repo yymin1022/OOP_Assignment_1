@@ -21,7 +21,7 @@ int main() {
     return 0;
 }
 
-class student{
+class Student{
 private:
     string birthYear;
     string dept;
@@ -48,7 +48,7 @@ public:
 };
 
 void insertStudent(){
-
+    
 }
 
 void searchStudent(){
@@ -56,7 +56,7 @@ void searchStudent(){
 }
 
 void sortStudent(){
-    
+
 }
 
 void selMenu(){
