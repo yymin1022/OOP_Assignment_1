@@ -13,20 +13,18 @@ private:
 public:
     Student(const string &name, const string &studentID, const string &birthYear, const string &dept, const string &telNum);
 
-    string getBirth(){return this->birthYear;};
     string getDept(){return this->dept;};
     string getName(){return this->name;};
     string getID(){return this->studentID;};
-    string getTel(){return this->telNum;};
 
     void printStudent();
 };
 
 bool checkDuplicate(string);
-bool compareStudentAdmission(Student, Student);
 bool compareStudentDept(Student, Student);
 bool compareStudentID(Student, Student);
 bool compareStudentName(Student, Student);
+
 void insertStudent();
 void searchStudent();
 void sortStudent();
@@ -57,20 +55,16 @@ bool checkDuplicate(string studentID){
     return false;
 }
 
-bool compareStudentAdmission(Student stu1, Student stu2){
-    return stu1.getDept().substr(0, 4) > stu2.getDept().substr(0, 4);
-}
-
 bool compareStudentDept(Student stu1, Student stu2){
-    return stu1.getDept() > stu2.getDept();
+    return stu1.getDept() < stu2.getDept();
 }
 
 bool compareStudentID(Student stu1, Student stu2){
-    return stu1.getID() > stu2.getID();
+    return stu1.getID() < stu2.getID();
 }
 
 bool compareStudentName(Student stu1, Student stu2){
-    return stu1.getName() > stu2.getName();
+    return stu1.getName() < stu2.getName();
 }
 
 void insertStudent(){
@@ -183,7 +177,27 @@ void searchStudent(){
 }
 
 void sortStudent(){
-    
+    cout << "1. Sort by Name" << "\n";
+    cout << "2. Sort by Student ID" << "\n";
+    cout << "3. Sort by Admission Year" << "\n";
+    cout << "4. Sort by Department name" << "\n";
+    cout << ">" << " ";
+
+    int selNum;
+    cin >> selNum;
+
+    switch(selNum){
+        case 1:
+            sort(studentData.begin(), studentData.end(), compareStudentName);
+            break;
+        case 2:
+        case 3:
+            sort(studentData.begin(), studentData.end(), compareStudentID);
+            break;
+        case 4:
+            sort(studentData.begin(), studentData.end(), compareStudentDept);
+            break;
+    }
 }
 
 void selMenu(){
