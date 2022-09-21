@@ -13,6 +13,13 @@ private:
 
 public:
     Student(const string &name, const string &studentID, const string &birthYear, const string &dept, const string &telNum);
+
+    string getBirth(){return this->birthYear;};
+    string getDept(){return this->dept;};
+    string getName(){return this->name;};
+    string getID(){return this->studentID;};
+    string getTel(){return this->telNum;};
+
     void printStudent();
 };
 
