@@ -2,6 +2,9 @@
 
 using namespace std;
 
+void insertStudent();
+void searchStudent();
+void sortStudent();
 void selMenu();
 
 bool isExit;
@@ -44,6 +47,18 @@ public:
      }
 };
 
+void insertStudent(){
+
+}
+
+void searchStudent(){
+
+}
+
+void sortStudent(){
+    
+}
+
 void selMenu(){
     cout << "1. Insertion" << "\n";
     cout << "2. Search" << "\n";
@@ -56,10 +71,13 @@ void selMenu(){
 
     switch(selNum){
         case 1:
+            insertStudent();
             break;
         case 2:
+            searchStudent();
             break;
         case 3:
+            sortStudent();
             break;
         case 4:
             isExit = true;
