@@ -118,16 +118,44 @@ void searchStudent(){
     int selNum;
     cin >> selNum;
 
+    string searchData;
+    if(selNum != 5){
+        cin >> searchData;
+    }
+
     switch(selNum){
         case 1:
+            for(auto iter: studentData){
+                if(iter.getName() == searchData){
+                    iter.printStudent();
+                }
+            }
             break;
         case 2:
+            for(auto iter: studentData){
+                if(iter.getID() == searchData){
+                    iter.printStudent();
+                }
+            }
             break;
         case 3:
+            for(auto iter: studentData){
+                if(iter.getID().substr(0, 4) == searchData){
+                    iter.printStudent();
+                }
+            }
             break;
         case 4:
+            for(auto iter: studentData){
+                if(iter.getDept() == searchData){
+                    iter.printStudent();
+                }
+            }
             break;
         case 5:
+            for(auto iter: studentData){
+                iter.printStudent();
+            }
             break;
     }
 }
