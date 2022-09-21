@@ -16,6 +16,7 @@ public:
     void printStudent();
 };
 
+bool checkDuplicate(string);
 void insertStudent();
 void searchStudent();
 void sortStudent();
@@ -34,6 +35,10 @@ int main() {
     }
 
     return 0;
+}
+
+bool checkDuplicate(string name){
+    return false;
 }
 
 void insertStudent(){
