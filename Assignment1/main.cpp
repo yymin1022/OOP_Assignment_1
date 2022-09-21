@@ -108,10 +108,15 @@ void insertStudent(){
 }
 
 void searchStudent(){
-    for(int i = 0; i < studentData.size(); i++){
-        studentData[i].printStudent();
-    }
+    cout << "1. Search by name" << "\n";
+    cout << "2. Search by student ID (10 numbers)" << "\n";
+    cout << "3. Search by admission year (4 numbers)" << "\n";
+    cout << "4. Search by department name" << "\n";
+    cout << "5. List All" << "\n";
+    cout << ">" << " ";
 
+    int selNum;
+    cin >> selNum;
 }
 
 void sortStudent(){
