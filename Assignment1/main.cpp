@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -24,6 +23,10 @@ public:
 };
 
 bool checkDuplicate(string);
+bool compareStudentAdmission(Student, Student);
+bool compareStudentDept(Student, Student);
+bool compareStudentID(Student, Student);
+bool compareStudentName(Student, Student);
 void insertStudent();
 void searchStudent();
 void sortStudent();
@@ -52,6 +55,22 @@ bool checkDuplicate(string studentID){
     }
 
     return false;
+}
+
+bool compareStudentAdmission(Student stu1, Student stu2){
+    return stu1.getDept().substr(0, 4) > stu2.getDept().substr(0, 4);
+}
+
+bool compareStudentDept(Student stu1, Student stu2){
+    return stu1.getDept() > stu2.getDept();
+}
+
+bool compareStudentID(Student stu1, Student stu2){
+    return stu1.getID() > stu2.getID();
+}
+
+bool compareStudentName(Student stu1, Student stu2){
+    return stu1.getName() > stu2.getName();
 }
 
 void insertStudent(){
@@ -164,7 +183,7 @@ void searchStudent(){
 }
 
 void sortStudent(){
-
+    
 }
 
 void selMenu(){
