@@ -45,6 +45,12 @@ int main() {
 }
 
 bool checkDuplicate(string name){
+    for(int i = 0; i < studentData.size(); i++){
+        if(studentData[i].getName() == name){
+            return true;
+        }
+    }
+    
     return false;
 }
 
