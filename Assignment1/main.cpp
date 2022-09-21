@@ -55,10 +55,12 @@ bool checkDuplicate(string studentID){
 }
 
 void insertStudent(){
+    cin.ignore();
     string name, studentID, birthYear, dept, telNum;
+
     while(true){
         cout << "Name ?" << " ";
-        cin >> name;
+        getline(cin, name);
 
         if(name.size() <= 15 && !name.empty()){
             break;
@@ -68,7 +70,7 @@ void insertStudent(){
 
     while(true){
         cout << "Student ID (10 digits)?" << " ";
-        cin >> studentID;
+        getline(cin, studentID);
 
         if(studentID.size() == 10 && !studentID.empty()){
             break;
@@ -78,7 +80,7 @@ void insertStudent(){
 
     while(true){
         cout << "Birth Year (4 digits)?" << " ";
-        cin >> birthYear;
+        getline(cin, birthYear);
 
         if(birthYear.size() == 4){
             break;
@@ -87,11 +89,11 @@ void insertStudent(){
     }
 
     cout << "Department ?" << " ";
-    cin >> dept;
+    getline(cin, dept);
 
     while(true){
         cout << "Tel ?" << " ";
-        cin >> telNum;
+        getline(cin, telNum);
 
         if(telNum.size() <= 12){
             break;
@@ -120,7 +122,8 @@ void searchStudent(){
 
     string searchData;
     if(selNum != 5){
-        cin >> searchData;
+        cin.ignore();
+        getline(cin, searchData);
     }
 
     switch(selNum){
