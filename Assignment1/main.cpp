@@ -99,8 +99,12 @@ void insertStudent(){
         cout << "Tel Number must be up to 12 digits." << "\n";
     }
 
-    Student newStudent(name, studentID, birthYear, dept, telNum);
-    studentData.push_back(newStudent);
+    if(!checkDuplicate(studentID)){
+        Student newStudent(name, studentID, birthYear, dept, telNum);
+        studentData.push_back(newStudent);
+    }else{
+        cout << "Error : Already inserted" << "\n";
+    }
 }
 
 void searchStudent(){
