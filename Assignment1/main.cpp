@@ -18,6 +18,32 @@ int main() {
     return 0;
 }
 
+class student{
+private:
+    string birthYear;
+    string dept;
+    string name;
+    string studentID;
+    string telNum;
+
+public:
+    void initStudent(string name, string studentID, string birthYear, string dept, string telNum){
+        this->birthYear = birthYear;
+        this->dept = dept;
+        this->name = name;
+        this->studentID = studentID;
+        this->telNum = telNum;
+    };
+
+     void printStudent(){
+         cout << this->name << " ";
+         cout << this->studentID << " ";
+         cout << this->birthYear << " ";
+         cout << this->dept << " ";
+         cout << this->telNum << "\n";
+     }
+};
+
 void selMenu(){
     cout << "1. Insertion" << "\n";
     cout << "2. Search" << "\n";
