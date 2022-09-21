@@ -45,8 +45,8 @@ int main() {
 }
 
 bool checkDuplicate(string studentID){
-    for(int i = 0; i < studentData.size(); i++){
-        if(studentData[i].getID() == studentID){
+    for(auto iter: studentData){
+        if(iter.getID() == studentID){
             return true;
         }
     }
