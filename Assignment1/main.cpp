@@ -13,7 +13,6 @@ private:
 
 public:
     Student(const string &name, const string &studentID, const string &birthYear, const string &dept, const string &telNum);
-    void initStudent(string, string, string, string, string);
     void printStudent();
 };
 
@@ -121,14 +120,6 @@ void selMenu(){
             isExit = true;
             break;
     }
-}
-
-void Student::initStudent(string name, string studentID, string birthYear, string dept, string telNum){
-    this->birthYear = birthYear;
-    this->dept = dept;
-    this->name = name;
-    this->studentID = studentID;
-    this->telNum = telNum;
 }
 
 void Student::printStudent(){
