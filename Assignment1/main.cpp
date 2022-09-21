@@ -49,16 +49,48 @@ public:
 
 void insertStudent(){
     string name, studentID, birthYear, dept, telNum;
-    cout << "Name ?" << " ";
-    cin >> name;
-    cout << "Student ID (10 digits)?" << " ";
-    cin >> studentID;
-    cout << "birthYear (4 digits)?" << " ";
-    cin >> birthYear;
+    while(true){
+        cout << "Name ?" << " ";
+        cin >> name;
+
+        if(name.size() <= 15){
+            break;
+        }
+        cout << "Name must be up to 15 digits." << "\n";
+    }
+
+    while(true){
+        cout << "Student ID (10 digits)?" << " ";
+        cin >> studentID;
+
+        if(studentID.size() == 10){
+            break;
+        }
+        cout << "Student ID must be 10 digits." << "\n";
+    }
+
+    while(true){
+        cout << "Birth Year (4 digits)?" << " ";
+        cin >> birthYear;
+
+        if(birthYear.size() == 4){
+            break;
+        }
+        cout << "Birth Year must be 4 digits." << "\n";
+    }
+
     cout << "Department ?" << " ";
     cin >> dept;
-    cout << "Tel ?" << " ";
-    cin >> telNum;
+
+    while(true){
+        cout << "Tel ?" << " ";
+        cin >> telNum;
+
+        if(telNum.size() <= 12){
+            break;
+        }
+        cout << "Tel Number must be up to 12 digits." << "\n";
+    }
 
     Student newStudent;
     newStudent.initStudent(name, studentID, birthYear, dept, telNum);
@@ -69,7 +101,7 @@ void searchStudent(){
 }
 
 void sortStudent(){
-    
+
 }
 
 void selMenu(){
