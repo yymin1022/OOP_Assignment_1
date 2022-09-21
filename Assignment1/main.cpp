@@ -44,13 +44,13 @@ int main() {
     return 0;
 }
 
-bool checkDuplicate(string name){
+bool checkDuplicate(string studentID){
     for(int i = 0; i < studentData.size(); i++){
-        if(studentData[i].getName() == name){
+        if(studentData[i].getID() == studentID){
             return true;
         }
     }
-    
+
     return false;
 }
 
