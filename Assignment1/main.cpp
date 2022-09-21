@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ private:
     string telNum;
 
 public:
-    explicit Student(const string &name, const string &studentID, const string &birthYear, const string &dept, const string &telNum);
+    Student(const string &name, const string &studentID, const string &birthYear, const string &dept, const string &telNum);
     void initStudent(string, string, string, string, string);
     void printStudent();
 };
@@ -22,6 +23,7 @@ void sortStudent();
 void selMenu();
 
 bool isExit;
+vector<Student> studentData;
 
 int main() {
     cin.tie(0);
@@ -81,9 +83,13 @@ void insertStudent(){
     }
 
     Student newStudent(name, studentID, birthYear, dept, telNum);
+    studentData.push_back(newStudent);
 }
 
 void searchStudent(){
+    for(int i = 0; i < studentData.size(); i++){
+        studentData[i].printStudent();
+    }
 
 }
 
