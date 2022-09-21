@@ -60,7 +60,7 @@ void insertStudent(){
         cout << "Name ?" << " ";
         cin >> name;
 
-        if(name.size() <= 15){
+        if(name.size() <= 15 && !name.empty()){
             break;
         }
         cout << "Name must be up to 15 digits." << "\n";
@@ -70,7 +70,7 @@ void insertStudent(){
         cout << "Student ID (10 digits)?" << " ";
         cin >> studentID;
 
-        if(studentID.size() == 10){
+        if(studentID.size() == 10 && !studentID.empty()){
             break;
         }
         cout << "Student ID must be 10 digits." << "\n";
