@@ -137,6 +137,22 @@ void searchStudent(){
         getline(cin, searchData);
     }
 
+    cout.width(16);
+    cout.fill(' ');
+    cout << "Name" << " ";
+    cout.width(11);
+    cout.fill(' ');
+    cout << "StudentID" << " ";
+    cout.width(20);
+    cout.fill(' ');
+    cout << "Dept" << " ";
+    cout.width(12);
+    cout.fill(' ');
+    cout << "Birth Year" << " ";
+    cout.width(12);
+    cout.fill(' ');
+    cout << "Tel" << "\n";
+
     switch(selNum){
         case 1:
             for(auto iter: studentData){
@@ -231,12 +247,12 @@ void Student::printStudent(){
     cout.width(11);
     cout.fill(' ');
     cout << this->studentID << " ";
-    cout.width(5);
-    cout.fill(' ');
-    cout << this->birthYear << " ";
     cout.width(20);
     cout.fill(' ');
     cout << this->dept << " ";
+    cout.width(12);
+    cout.fill(' ');
+    cout << this->birthYear << " ";
     cout.width(12);
     cout.fill(' ');
     cout << this->telNum << "\n";
