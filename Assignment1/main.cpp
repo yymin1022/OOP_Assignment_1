@@ -48,7 +48,20 @@ public:
 };
 
 void insertStudent(){
-    
+    string name, studentID, birthYear, dept, telNum;
+    cout << "Name ?" << " ";
+    cin >> name;
+    cout << "Student ID (10 digits)?" << " ";
+    cin >> studentID;
+    cout << "birthYear (4 digits)?" << " ";
+    cin >> birthYear;
+    cout << "Department ?" << " ";
+    cin >> dept;
+    cout << "Tel ?" << " ";
+    cin >> telNum;
+
+    Student newStudent;
+    newStudent.initStudent(name, studentID, birthYear, dept, telNum);
 }
 
 void searchStudent(){
@@ -56,7 +69,7 @@ void searchStudent(){
 }
 
 void sortStudent(){
-
+    
 }
 
 void selMenu(){
