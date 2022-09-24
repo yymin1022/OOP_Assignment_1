@@ -40,11 +40,13 @@ vector<Student> studentData;
 int main() {
     cout.setf(ios::left);
 
-    loadDB("file2.txt");
+    loadDB("file1.txt");
 
     while(!isExit){
         selMenu();
     }
+
+    saveDB("file1.txt");
 
     return 0;
 }
@@ -85,8 +87,10 @@ void loadDB(string fileName){
             getline(dbFile, dept);
             getline(dbFile, telNum);
 
-            Student newStudent(name, studentID, birthYear, dept, telNum);
-            studentData.push_back(newStudent);
+            if(!name.empty()){
+                Student newStudent(name, studentID, birthYear, dept, telNum);
+                studentData.push_back(newStudent);
+            }
         }
 
         sort(studentData.begin(), studentData.end(), compareStudentName);
@@ -103,22 +107,26 @@ void saveDB(string fileName){
     ofstream dbFile;
     dbFile.open(fileName);
 
-    for(auto iter: studentData){
-        string name, studentID, birthYear, dept, telNum;
-        name = iter.getName();
-        studentID = iter.getID();
-        birthYear = iter.getBirth();
-        dept = iter.getDept();
-        telNum = iter.getTel();
+    if(dbFile.is_open()){
+        for(auto iter: studentData){
+            string name, studentID, birthYear, dept, telNum;
+            name = iter.getName() + "\n";
+            studentID = iter.getID() + "\n";
+            birthYear = iter.getBirth() + "\n";
+            dept = iter.getDept() + "\n";
+            telNum = iter.getTel() + "\n";
 
-        dbFile.write(name.c_str(), name.size());
-        dbFile.write(studentID.c_str(), studentID.size());
-        dbFile.write(birthYear.c_str(), birthYear.size());
-        dbFile.write(dept.c_str(), dept.size());
-        dbFile.write(telNum.c_str(), telNum.size());
+            dbFile.write(name.c_str(), name.size());
+            dbFile.write(studentID.c_str(), studentID.size());
+            dbFile.write(birthYear.c_str(), birthYear.size());
+            dbFile.write(dept.c_str(), dept.size());
+            dbFile.write(telNum.c_str(), telNum.size());
+        }
+
+        dbFile.close();
     }
 
-    dbFile.close();
+
 }
 
 void insertStudent(){
