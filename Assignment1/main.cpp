@@ -38,7 +38,7 @@ vector<Student> studentData;
 int main() {
     cout.setf(ios::left);
 
-    loadDB("file1.txt");
+    loadDB("file2.txt");
 
     while(!isExit){
         selMenu();
@@ -90,6 +90,10 @@ void loadDB(string fileName){
         sort(studentData.begin(), studentData.end(), compareStudentName);
 
         dbFile.close();
+    }else{
+        ofstream dbFileNew;
+        dbFileNew.open(fileName);
+        dbFileNew.close();
     }
 }
 
