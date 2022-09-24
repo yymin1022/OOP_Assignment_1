@@ -25,6 +25,8 @@ bool compareStudentDept(Student, Student);
 bool compareStudentID(Student, Student);
 bool compareStudentName(Student, Student);
 
+void loadDB(string);
+void saveDB(string);
 void insertStudent();
 void searchStudent();
 void sortStudent();
@@ -63,6 +65,14 @@ bool compareStudentID(Student stu1, Student stu2){
 
 bool compareStudentName(Student stu1, Student stu2){
     return stu1.getName() < stu2.getName();
+}
+
+void loadDB(string fileName){
+
+}
+
+void saveDB(string fileName){
+
 }
 
 void insertStudent(){
