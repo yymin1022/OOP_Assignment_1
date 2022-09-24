@@ -38,6 +38,8 @@ vector<Student> studentData;
 int main() {
     cout.setf(ios::left);
 
+    loadDB("file1.txt");
+
     while(!isExit){
         selMenu();
     }
