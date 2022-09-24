@@ -22,13 +22,13 @@ public:
     void printStudent();
 };
 
-bool checkDuplicate(string);
+bool checkDuplicate(const string&);
 bool compareStudentDept(Student, Student);
 bool compareStudentID(Student, Student);
 bool compareStudentName(Student, Student);
 
-void loadDB(string);
-void saveDB(string);
+void loadDB(const string&);
+void saveDB(const string&);
 void insertStudent();
 void searchStudent();
 void sortStudent();
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]){
     return 0;
 }
 
-bool checkDuplicate(string studentID){
+bool checkDuplicate(const string& studentID){
     for(auto iter: studentData){
         if(iter.getID() == studentID){
             return true;
@@ -73,7 +73,7 @@ bool compareStudentName(Student stu1, Student stu2){
     return stu1.getName() < stu2.getName();
 }
 
-void loadDB(string fileName){
+void loadDB(const string& fileName){
     ifstream dbFile;
     dbFile.open(fileName);
 
@@ -103,7 +103,7 @@ void loadDB(string fileName){
     }
 }
 
-void saveDB(string fileName){
+void saveDB(const string& fileName){
     ofstream dbFile;
     dbFile.open(fileName);
 
