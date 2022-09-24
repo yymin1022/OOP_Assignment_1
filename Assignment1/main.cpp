@@ -87,6 +87,8 @@ void loadDB(string fileName){
             studentData.push_back(newStudent);
         }
 
+        sort(studentData.begin(), studentData.end(), compareStudentName);
+
         dbFile.close();
     }
 }
