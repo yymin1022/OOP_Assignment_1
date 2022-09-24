@@ -37,16 +37,16 @@ void selMenu();
 bool isExit;
 vector<Student> studentData;
 
-int main() {
+int main(int argc, char *argv[]){
     cout.setf(ios::left);
 
-    loadDB("file1.txt");
+    loadDB(argv[1]);
 
     while(!isExit){
         selMenu();
     }
 
-    saveDB("file1.txt");
+    saveDB(argv[1]);
 
     return 0;
 }
