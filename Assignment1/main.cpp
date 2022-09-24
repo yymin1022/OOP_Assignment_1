@@ -98,7 +98,23 @@ void loadDB(string fileName){
 }
 
 void saveDB(string fileName){
+    ofstream dbFile;
+    dbFile.open(fileName);
 
+    for(auto iter: studentData){
+        string name, studentID, birthYear, dept, telNum;
+        name = iter.getName();
+        studentID = iter.getID();
+        birthYear = iter.getBirth();
+        dept = iter.getDept();
+        telNum = iter.getTel();
+
+        dbFile.write(name.c_str(), name.size());
+        dbFile.write(studentID.c_str(), studentID.size());
+        dbFile.write(birthYear.c_str(), birthYear.size());
+        dbFile.write(dept.c_str(), dept.size());
+        dbFile.write(telNum.c_str(), telNum.size());
+    }
 }
 
 void insertStudent(){
