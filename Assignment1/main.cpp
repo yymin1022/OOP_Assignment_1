@@ -70,7 +70,25 @@ bool compareStudentName(Student stu1, Student stu2){
 }
 
 void loadDB(string fileName){
+    ifstream dbFile;
+    dbFile.open(fileName);
 
+    if(dbFile.is_open()){
+        string name, studentID, birthYear, dept, telNum;
+
+        while(!dbFile.eof()){
+            getline(dbFile, name);
+            getline(dbFile, studentID);
+            getline(dbFile, birthYear);
+            getline(dbFile, dept);
+            getline(dbFile, telNum);
+
+            Student newStudent(name, studentID, birthYear, dept, telNum);
+            studentData.push_back(newStudent);
+        }
+
+        dbFile.close();
+    }
 }
 
 void saveDB(string fileName){
