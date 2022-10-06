@@ -1,0 +1,8 @@
+//
+// Created by yymin on 2022-10-07.
+//
+
+#ifndef ASSIGNMENT1_VERIFYDATA_H
+#define ASSIGNMENT1_VERIFYDATA_H
+
+#endif //ASSIGNMENT1_VERIFYDATA_H
