@@ -13,13 +13,13 @@ int main(int argc, char *argv[]){
     cout.setf(ios::left);
     vector<Student> studentData;
 
-    if(argc > 0){
+    if(argc > 1){
         loadDB(argv[1], &studentData);
     }
 
     while(selMenu(&studentData));
 
-    if(argc > 0) {
+    if(argc > 1) {
         saveDB(argv[1], &studentData);
     }
 
