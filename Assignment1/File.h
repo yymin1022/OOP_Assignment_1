@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void loadDB(const string& fileName, vector<Student> studentData){
+void loadDB(const string& fileName, vector<Student> *ptrStudentData){
     ifstream dbFile;
     dbFile.open(fileName);
 
@@ -23,11 +23,11 @@ void loadDB(const string& fileName, vector<Student> studentData){
 
             if(!name.empty()){
                 Student newStudent(name, studentID, birthYear, dept, telNum);
-                studentData.push_back(newStudent);
+                ptrStudentData->push_back(newStudent);
             }
         }
 
-        sort(studentData.begin(), studentData.end(), compareStudentName);
+        sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentName);
 
         dbFile.close();
     }else{
@@ -37,12 +37,12 @@ void loadDB(const string& fileName, vector<Student> studentData){
     }
 }
 
-void saveDB(const string& fileName, vector<Student> studentData){
+void saveDB(const string& fileName, vector<Student> *ptrStudentData){
     ofstream dbFile;
     dbFile.open(fileName);
 
     if(dbFile.is_open()){
-        for(auto iter: studentData){
+        for(auto iter: *ptrStudentData){
             string name, studentID, birthYear, dept, telNum;
             name = iter.getName() + "\n";
             studentID = iter.getID() + "\n";

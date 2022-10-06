@@ -5,33 +5,33 @@
 
 using namespace std;
 
-void insertStudent();
-void searchStudent();
-void sortStudent();
-void selMenu();
+void insertStudent(vector<Student>*);
+void searchStudent(vector<Student>*);
+void sortStudent(vector<Student>*);
+void selMenu(vector<Student>*);
 
 bool isExit;
-vector<Student> studentData;
 
 int main(int argc, char *argv[]){
     cout.setf(ios::left);
+    vector<Student> studentData;
 
-    if(argc){
-        loadDB(argv[1], studentData);
+    if(argc > 0){
+        loadDB(argv[1], &studentData);
     }
 
     while(!isExit){
-        selMenu();
+        selMenu(&studentData);
     }
 
-    if(argc) {
-        saveDB(argv[1], studentData);
+    if(argc > 0) {
+        saveDB(argv[1], &studentData);
     }
 
     return 0;
 }
 
-void insertStudent(){
+void insertStudent(vector<Student> *ptrStudentData){
     cin.ignore();
     string name, studentID, birthYear, dept, telNum;
 
@@ -78,15 +78,15 @@ void insertStudent(){
         cout << "Tel Number must be up to 12 digits." << "\n";
     }
 
-    if(!checkDuplicate(studentID, studentData)){
+    if(!checkDuplicate(studentID, ptrStudentData)){
         Student newStudent(name, studentID, birthYear, dept, telNum);
-        studentData.push_back(newStudent);
+        ptrStudentData->push_back(newStudent);
     }else{
         cout << "Error : Already inserted" << "\n";
     }
 }
 
-void searchStudent(){
+void searchStudent(vector<Student> *ptrStudentData){
     cout << "1. Search by name" << "\n";
     cout << "2. Search by student ID (10 numbers)" << "\n";
     cout << "3. Search by admission year (4 numbers)" << "\n";
@@ -121,42 +121,42 @@ void searchStudent(){
 
     switch(selNum){
         case 1:
-            for(auto iter: studentData){
+            for(auto iter: *ptrStudentData){
                 if(iter.getName() == searchData){
                     iter.printStudent();
                 }
             }
             break;
         case 2:
-            for(auto iter: studentData){
+            for(auto iter: *ptrStudentData){
                 if(iter.getID() == searchData){
                     iter.printStudent();
                 }
             }
             break;
         case 3:
-            for(auto iter: studentData){
+            for(auto iter: *ptrStudentData){
                 if(iter.getID().substr(0, 4) == searchData){
                     iter.printStudent();
                 }
             }
             break;
         case 4:
-            for(auto iter: studentData){
+            for(auto iter: *ptrStudentData){
                 if(iter.getDept() == searchData){
                     iter.printStudent();
                 }
             }
             break;
         case 5:
-            for(auto iter: studentData){
+            for(auto iter: *ptrStudentData){
                 iter.printStudent();
             }
             break;
     }
 }
 
-void sortStudent(){
+void sortStudent(vector<Student> *ptrStudentData){
     cout << "1. Sort by Name" << "\n";
     cout << "2. Sort by Student ID" << "\n";
     cout << "3. Sort by Admission Year" << "\n";
@@ -168,19 +168,19 @@ void sortStudent(){
 
     switch(selNum){
         case 1:
-            sort(studentData.begin(), studentData.end(), compareStudentName);
+            sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentName);
             break;
         case 2:
         case 3:
-            sort(studentData.begin(), studentData.end(), compareStudentID);
+            sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentID);
             break;
         case 4:
-            sort(studentData.begin(), studentData.end(), compareStudentDept);
+            sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentDept);
             break;
     }
 }
 
-void selMenu(){
+void selMenu(vector<Student> *ptrStudentData){
     cout << "1. Insertion" << "\n";
     cout << "2. Search" << "\n";
     cout << "3. Sorting Option" << "\n";
@@ -192,13 +192,13 @@ void selMenu(){
 
     switch(selNum){
         case 1:
-            insertStudent();
+            insertStudent(ptrStudentData);
             break;
         case 2:
-            searchStudent();
+            searchStudent(ptrStudentData);
             break;
         case 3:
-            sortStudent();
+            sortStudent(ptrStudentData);
             break;
         case 4:
             isExit = true;

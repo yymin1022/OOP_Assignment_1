@@ -6,8 +6,8 @@
 
 using namespace std;
 
-bool checkDuplicate(const string& studentID, vector<Student> studentData){
-    for(auto iter: studentData){
+bool checkDuplicate(const string& studentID, vector<Student> *ptrStudentData){
+    for(auto iter: *ptrStudentData){
         if(iter.getID() == studentID){
             return true;
         }
