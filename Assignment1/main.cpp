@@ -8,9 +8,7 @@ using namespace std;
 void insertStudent(vector<Student>*);
 void searchStudent(vector<Student>*);
 void sortStudent(vector<Student>*);
-void selMenu(vector<Student>*);
-
-bool isExit;
+bool selMenu(vector<Student>*);
 
 int main(int argc, char *argv[]){
     cout.setf(ios::left);
@@ -20,9 +18,7 @@ int main(int argc, char *argv[]){
         loadDB(argv[1], &studentData);
     }
 
-    while(!isExit){
-        selMenu(&studentData);
-    }
+    while(selMenu(&studentData));
 
     if(argc > 0) {
         saveDB(argv[1], &studentData);
@@ -180,7 +176,7 @@ void sortStudent(vector<Student> *ptrStudentData){
     }
 }
 
-void selMenu(vector<Student> *ptrStudentData){
+bool selMenu(vector<Student> *ptrStudentData){
     cout << "1. Insertion" << "\n";
     cout << "2. Search" << "\n";
     cout << "3. Sorting Option" << "\n";
@@ -201,7 +197,8 @@ void selMenu(vector<Student> *ptrStudentData){
             sortStudent(ptrStudentData);
             break;
         case 4:
-            isExit = true;
-            break;
+            return false;
     }
+
+    return true;
 }
