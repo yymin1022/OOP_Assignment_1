@@ -135,20 +135,17 @@ void sortStudent(vector<Student> *ptrStudentData){
     cout << "4. Sort by Department name" << "\n";
     cout << ">" << " ";
 
-    int selNum;
+    string selNum;
     cin >> selNum;
 
-    switch(selNum){
-        case 1:
-            sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentName);
-            break;
-        case 2:
-        case 3:
-            sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentID);
-            break;
-        case 4:
-            sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentDept);
-            break;
+    if(selNum == "1"){
+        sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentName);
+    }else if(selNum == "2" || selNum == "3"){
+        sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentID);
+    }else if(selNum == "4"){
+        sort(ptrStudentData->begin(), ptrStudentData->end(), compareStudentDept);
+    }else{
+        cout << "Wrong Menu Input. Try Again." << "\n";
     }
 }
 
