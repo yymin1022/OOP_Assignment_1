@@ -5,6 +5,7 @@
 #include "VerifyData.h"
 
 using namespace std;
+
 bool selMenu(vector<Student>*);
 
 int main(int argc, char *argv[]){
@@ -31,21 +32,19 @@ bool selMenu(vector<Student> *ptrStudentData){
     cout << "4. Exit" << "\n";
     cout << ">" << " ";
 
-    int selNum;
+    string selNum;
     cin >> selNum;
 
-    switch(selNum){
-        case 1:
-            insertStudent(ptrStudentData);
-            break;
-        case 2:
-            searchStudent(ptrStudentData);
-            break;
-        case 3:
-            sortStudent(ptrStudentData);
-            break;
-        case 4:
-            return false;
+    if(selNum == "1"){
+        insertStudent(ptrStudentData);
+    }else if(selNum == "2"){
+        searchStudent(ptrStudentData);
+    }else if(selNum == "3"){
+        sortStudent(ptrStudentData);
+    }else if(selNum == "4"){
+        return false;
+    }else{
+        cout << "Wrong Menu Input. Try Again." << "\n";
     }
 
     return true;
