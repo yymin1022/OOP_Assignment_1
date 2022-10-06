@@ -40,13 +40,17 @@ vector<Student> studentData;
 int main(int argc, char *argv[]){
     cout.setf(ios::left);
 
-    loadDB(argv[1]);
+    if(argc){
+        loadDB(argv[1]);
+    }
 
     while(!isExit){
         selMenu();
     }
 
-    saveDB(argv[1]);
+    if(argc) {
+        saveDB(argv[1]);
+    }
 
     return 0;
 }
