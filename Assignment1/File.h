@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include "Student.h"
+#include "VerifyData.h"
 
 #ifndef ASSIGNMENT1_FILE_H
 #define ASSIGNMENT1_FILE_H

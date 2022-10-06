@@ -1,15 +1,10 @@
 #include <bits/stdc++.h>
+#include "File.h"
 #include "Student.h"
+#include "VerifyData.h"
 
 using namespace std;
 
-bool checkDuplicate(const string&);
-bool compareStudentDept(Student, Student);
-bool compareStudentID(Student, Student);
-bool compareStudentName(Student, Student);
-
-void loadDB(const string&);
-void saveDB(const string&);
 void insertStudent();
 void searchStudent();
 void sortStudent();
@@ -22,7 +17,7 @@ int main(int argc, char *argv[]){
     cout.setf(ios::left);
 
     if(argc){
-        loadDB(argv[1]);
+        loadDB(argv[1], studentData);
     }
 
     while(!isExit){
@@ -30,88 +25,10 @@ int main(int argc, char *argv[]){
     }
 
     if(argc) {
-        saveDB(argv[1]);
+        saveDB(argv[1], studentData);
     }
 
     return 0;
-}
-
-bool checkDuplicate(const string& studentID){
-    for(auto iter: studentData){
-        if(iter.getID() == studentID){
-            return true;
-        }
-    }
-
-    return false;
-}
-
-bool compareStudentDept(Student stu1, Student stu2){
-    return stu1.getDept() < stu2.getDept();
-}
-
-bool compareStudentID(Student stu1, Student stu2){
-    return stu1.getID() < stu2.getID();
-}
-
-bool compareStudentName(Student stu1, Student stu2){
-    return stu1.getName() < stu2.getName();
-}
-
-void loadDB(const string& fileName){
-    ifstream dbFile;
-    dbFile.open(fileName);
-
-    if(dbFile.is_open()){
-        string name, studentID, birthYear, dept, telNum;
-
-        while(!dbFile.eof()){
-            getline(dbFile, name);
-            getline(dbFile, studentID);
-            getline(dbFile, birthYear);
-            getline(dbFile, dept);
-            getline(dbFile, telNum);
-
-            if(!name.empty()){
-                Student newStudent(name, studentID, birthYear, dept, telNum);
-                studentData.push_back(newStudent);
-            }
-        }
-
-        sort(studentData.begin(), studentData.end(), compareStudentName);
-
-        dbFile.close();
-    }else{
-        ofstream dbFileNew;
-        dbFileNew.open(fileName);
-        dbFileNew.close();
-    }
-}
-
-void saveDB(const string& fileName){
-    ofstream dbFile;
-    dbFile.open(fileName);
-
-    if(dbFile.is_open()){
-        for(auto iter: studentData){
-            string name, studentID, birthYear, dept, telNum;
-            name = iter.getName() + "\n";
-            studentID = iter.getID() + "\n";
-            birthYear = iter.getBirth() + "\n";
-            dept = iter.getDept() + "\n";
-            telNum = iter.getTel() + "\n";
-
-            dbFile.write(name.c_str(), name.size());
-            dbFile.write(studentID.c_str(), studentID.size());
-            dbFile.write(birthYear.c_str(), birthYear.size());
-            dbFile.write(dept.c_str(), dept.size());
-            dbFile.write(telNum.c_str(), telNum.size());
-        }
-
-        dbFile.close();
-    }
-
-
 }
 
 void insertStudent(){
@@ -161,7 +78,7 @@ void insertStudent(){
         cout << "Tel Number must be up to 12 digits." << "\n";
     }
 
-    if(!checkDuplicate(studentID)){
+    if(!checkDuplicate(studentID, studentData)){
         Student newStudent(name, studentID, birthYear, dept, telNum);
         studentData.push_back(newStudent);
     }else{
