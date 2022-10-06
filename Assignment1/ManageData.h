@@ -16,9 +16,8 @@ void insertStudent(vector<Student> *ptrStudentData){
         cout << "Name ?" << " ";
         getline(cin, name);
 
-        if(name.size() <= 15 && !name.empty()){
-            break;
-        }
+        if(name.size() <= 15 && !name.empty()){break;}
+
         cout << "Name must be up to 15 digits." << "\n";
     }
 
@@ -26,9 +25,8 @@ void insertStudent(vector<Student> *ptrStudentData){
         cout << "Student ID (10 digits)?" << " ";
         getline(cin, studentID);
 
-        if(studentID.size() == 10 && !studentID.empty()){
-            break;
-        }
+        if(studentID.size() == 10 && !studentID.empty()){break;}
+
         cout << "Student ID must be 10 digits." << "\n";
     }
 
@@ -36,9 +34,8 @@ void insertStudent(vector<Student> *ptrStudentData){
         cout << "Birth Year (4 digits)?" << " ";
         getline(cin, birthYear);
 
-        if(birthYear.size() == 4){
-            break;
-        }
+        if(birthYear.size() == 4){break;}
+
         cout << "Birth Year must be 4 digits." << "\n";
     }
 
@@ -49,9 +46,8 @@ void insertStudent(vector<Student> *ptrStudentData){
         cout << "Tel ?" << " ";
         getline(cin, telNum);
 
-        if(telNum.size() <= 12){
-            break;
-        }
+        if(telNum.size() <= 12){break;}
+
         cout << "Tel Number must be up to 12 digits." << "\n";
     }
 
