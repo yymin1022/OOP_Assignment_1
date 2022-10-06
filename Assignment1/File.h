@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 #include "Student.h"
 #include "VerifyData.h"
 
@@ -16,10 +17,18 @@ void loadDB(const string& fileName, vector<Student> *ptrStudentData){
 
         while(!dbFile.eof()){
             getline(dbFile, name);
+            if(name == "-----"){continue;}
             getline(dbFile, studentID);
+            if(studentID == "-----"){continue;}
             getline(dbFile, birthYear);
+            if(birthYear == "-----"){continue;}
             getline(dbFile, dept);
+            if(dept == "-----"){continue;}
             getline(dbFile, telNum);
+            if(telNum == "-----"){continue;}
+
+            string divider;
+            getline(dbFile, divider);
 
             if(!name.empty()){
                 Student newStudent(name, studentID, birthYear, dept, telNum);
@@ -55,6 +64,7 @@ void saveDB(const string& fileName, vector<Student> *ptrStudentData){
             dbFile.write(birthYear.c_str(), birthYear.size());
             dbFile.write(dept.c_str(), dept.size());
             dbFile.write(telNum.c_str(), telNum.size());
+            dbFile.write("-----\n", 6);
         }
 
         dbFile.close();
