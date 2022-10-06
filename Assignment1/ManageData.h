@@ -70,11 +70,11 @@ void searchStudent(vector<Student> *ptrStudentData){
     cout << "5. List All" << "\n";
     cout << ">" << " ";
 
-    int selNum;
+    string selNum;
     cin >> selNum;
 
     string searchData;
-    if(selNum != 5){
+    if(selNum != "5"){
         cin.ignore();
         getline(cin, searchData);
     }
@@ -95,40 +95,36 @@ void searchStudent(vector<Student> *ptrStudentData){
     cout.fill(' ');
     cout << "Tel" << "\n";
 
-    switch(selNum){
-        case 1:
-            for(auto iter: *ptrStudentData){
-                if(iter.getName() == searchData){
-                    iter.printStudent();
-                }
-            }
-            break;
-        case 2:
-            for(auto iter: *ptrStudentData){
-                if(iter.getID() == searchData){
-                    iter.printStudent();
-                }
-            }
-            break;
-        case 3:
-            for(auto iter: *ptrStudentData){
-                if(iter.getID().substr(0, 4) == searchData){
-                    iter.printStudent();
-                }
-            }
-            break;
-        case 4:
-            for(auto iter: *ptrStudentData){
-                if(iter.getDept() == searchData){
-                    iter.printStudent();
-                }
-            }
-            break;
-        case 5:
-            for(auto iter: *ptrStudentData){
+    if(selNum == "1"){
+        for(auto iter: *ptrStudentData){
+            if(iter.getName() == searchData){
                 iter.printStudent();
             }
-            break;
+        }
+    }else if(selNum == "2"){
+        for(auto iter: *ptrStudentData){
+            if(iter.getID() == searchData){
+                iter.printStudent();
+            }
+        }
+    }else if(selNum == "3"){
+        for(auto iter: *ptrStudentData){
+            if(iter.getID().substr(0, 4) == searchData){
+                iter.printStudent();
+            }
+        }
+    }else if(selNum == "4"){
+        for(auto iter: *ptrStudentData){
+            if(iter.getDept() == searchData){
+                iter.printStudent();
+            }
+        }
+    }else if(selNum == "5"){
+        for(auto iter: *ptrStudentData){
+            iter.printStudent();
+        }
+    }else{
+        cout << "Wrong Menu Input. Try Again." << "\n";
     }
 }
 
