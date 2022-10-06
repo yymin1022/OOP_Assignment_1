@@ -52,4 +52,4 @@ Student::Student(const string &name, const string &studentID, const string &birt
     this->telNum = telNum;
 }
 
-#endif //ASSIGNMENT1_STUDENT_H
+#endif

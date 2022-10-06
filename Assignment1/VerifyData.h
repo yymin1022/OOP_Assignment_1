@@ -28,4 +28,4 @@ bool compareStudentName(Student stu1, Student stu2){
     return stu1.getName() < stu2.getName();
 }
 
-#endif //ASSIGNMENT1_VERIFYDATA_H
+#endif
