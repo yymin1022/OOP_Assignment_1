@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <fstream>
 
 #include "Student.h"
 #include "VerifyData.h"

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 
 #ifndef ASSIGNMENT1_STUDENT_H
 #define ASSIGNMENT1_STUDENT_H
