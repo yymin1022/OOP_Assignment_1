@@ -17,7 +17,7 @@ private:
     vector<string> recipeStep;            // Variable for Recipe Steps
 
 public:
-    Recipe(recipeID){
+    Recipe(int recipeID){
         this->recipeID = recipeID;
     }
 
