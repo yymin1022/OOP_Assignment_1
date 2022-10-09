@@ -5,4 +5,12 @@
 
 using namespace std;
 
+void loadDB(){
+    // This Function is for Loading Data from DB.
+}
+
+void saveDB(){
+    // This Function is for Saving Data to DB.
+}
+
 #endif
