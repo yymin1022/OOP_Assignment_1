@@ -10,12 +10,17 @@ private:
     int year;
     int month;
     int day;
+    string annotation;
 
 public:
     Date(int year, int month, int day){
         this->year = year;
         this->month = month;
         this->day = day;
+    }
+
+    string getAnnotation(){
+        // This Function is Annotation Getter.
     }
 
     int getDay(){
@@ -28,6 +33,10 @@ public:
 
     int getYear(){
         // This Function is Year Getter.
+    }
+
+    void setAnnotation(string annotation){
+        // This Function is Annotation Setter.
     }
 
     void setDay(int day){
