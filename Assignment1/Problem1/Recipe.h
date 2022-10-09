@@ -33,15 +33,23 @@ public:
         // This Function is for Printing Recipe Data.
     }
 
-    void getRecipeID(){
+    int getRecipeID(){
         // This Function is Recipe ID Getter.
     }
 
-    void getRecipeName(){
+    vector<Ingredient> getRecipeIngredient(){
+        // This Function is Recipe Ingredient Getter.
+    }
+
+    string getRecipeName(){
         // This Function is Recipe Name Getter.
     }
 
-    void getRecipeTime(){
+    vector<string> getRecipeStep(){
+        // This Function is Recipe Step Getter.
+    }
+
+    int getRecipeTime(){
         // This Function is Recipe Time Getter.
     }
 
@@ -51,6 +59,10 @@ public:
 
     void setRecipeName(string recipeName){
         // This Function is Recipe Name Setter.
+    }
+
+    void setRecipeStep(int idx, string recipeStep){
+        // This Function is Recipe Step Setter.
     }
 
     void setRecipeTime(int recipeTime){
