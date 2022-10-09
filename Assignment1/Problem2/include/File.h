@@ -1,6 +1,7 @@
+#include <algorithm>
 #include <iostream>
 #include <fstream>
-#include <algorithm>
+#include <vector>
 
 #include "Student.h"
 #include "VerifyData.h"

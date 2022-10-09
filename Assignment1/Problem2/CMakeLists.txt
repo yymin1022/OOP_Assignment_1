@@ -4,4 +4,4 @@ project(Problem2)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Problem2
-        main.cpp Student.h File.h VerifyData.h ManageData.h)
+        src/main.cpp include/Student.h include/File.h include/VerifyData.h include/ManageData.h)
