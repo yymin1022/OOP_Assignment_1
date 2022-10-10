@@ -5,6 +5,13 @@
 | Architecture | amd64 |
 | Compiler | g++ 9.4.0 |
 
+## Project Structure
+> Directory src
+> > Runnable CPP File Included
+
+> Directory include
+> > Header Files for CPP
+
 ## Execution
 > Run "make" command on shell
 ```bash
